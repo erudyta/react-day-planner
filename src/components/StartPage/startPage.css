@@ -1,0 +1,17 @@
+.startpage-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 50%;
+}
+
+.startpage-container img{
+    width: 100px;
+    height: 100px;
+}
+
+.startpage h2{
+    text-transform: uppercase;
+}
