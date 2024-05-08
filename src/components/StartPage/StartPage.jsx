@@ -1,7 +1,7 @@
-import logo from '../../../public/notebook.png'
+import logo from '../../assets/notebook.png'
 import Button from '../Button/Button'
 
-import './startPage.css'
+import './startpage.css'
 export default function NewPlan({onAddPlan}) {
 	return (
 		<div className='startpage-container'>

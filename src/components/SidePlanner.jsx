@@ -1,14 +1,14 @@
-import './sidePlanner.css'
+import './sideplanner.css'
 import Button from './Button/Button.jsx'
-export default function SidePlanner({ plans }) {
+export default function SidePlanner({ days, onSelectDay }) {
 	return (
 		<aside>
 			<Button>+ Add Day</Button>
 			<h2>your days</h2>
 			<ul className='dateList'>
-				{plans.map(plan => (
-					<li key={plan.date}>
-						<button>{plan.date}</button>
+				{days.map(day => (
+					<li key={day.date}>
+						<button onClick={() => onSelectDay(day.id)}>{day.date}</button>
 					</li>
 				))}
 			</ul>

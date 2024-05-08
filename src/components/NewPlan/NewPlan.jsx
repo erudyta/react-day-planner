@@ -1,7 +1,8 @@
 import { useRef } from 'react'
+import PlanList from '../PlanList/PlanList.jsx'
 
-import './newPlan.css'
-export default function newPlan({ onAddTempPlans, arrTempPlans, onDeletePlan }) {
+import './newplan.css'
+export default function newPlan({ mode, onAddTempPlans, arrTempPlans, onDeletePlan }) {
 	const startTime = useRef()
 	const endTime = useRef()
 	const description = useRef()
@@ -27,30 +28,13 @@ export default function newPlan({ onAddTempPlans, arrTempPlans, onDeletePlan }) 
 						Start time
 					</label>
 					<input type='time' id='start-time' ref={startTime} />
-					<label className='label-flex' htmlFor='end-time'>End time</label>
+					<label className='label-flex' htmlFor='end-time'>
+						End time
+					</label>
 					<input type='time' id='end-time' ref={endTime} />
 					<button onClick={handleAddTempPlans}>Add</button>
 				</div>
-				{arrTempPlans.length === 0 && <p>No plans added!</p>}
-				{arrTempPlans.length > 0 && (
-					<div className='temp-plans-container'>
-						<h3>Plan list</h3>
-						{arrTempPlans.map((plan, index) => (
-							<div key={index} className=''>
-								<div className='plan-title'>
-									<p>
-										<span>{plan.startTime}</span>
-										<span> - </span>
-										<span>{plan.endTime}</span>
-									</p>
-									<i onClick={() => onDeletePlan(plan.id)} className='bx bx-minus-circle'></i>
-								</div>
-
-								<p className='plan-desc'>{plan.description}</p>
-							</div>
-						))}
-					</div>
-				)}
+				<PlanList mode={mode} arrPlans={arrTempPlans} onDeletePlan={onDeletePlan}/>
 			</div>
 		</>
 	)

@@ -1,5 +1,7 @@
-import './selectedDay.css'
-export default function SelectedDay({ day, arrPlans }) {
+import PlanList from '../PlanList/PlanList.jsx'
+
+import './selectedday.css'
+export default function SelectedDay({ mode, day, arrPlans, onDeletePlan }) {
 	return (
 		<div>
 			<header>
@@ -7,25 +9,7 @@ export default function SelectedDay({ day, arrPlans }) {
 				<button>Delete</button>
 			</header>
 			<div>
-				{arrPlans.length === 0 && <p>No plans added!</p>}
-				{arrPlans.length > 0 && (
-					<div className='temp-plans-container'>
-						<h3>Plan list</h3>
-						{arrPlans.map((plan, index) => (
-							<div key={index} className=''>
-								<div className='plan-title'>
-									<p>
-										<span>{plan.startTime}</span>
-										<span> - </span>
-										<span>{plan.endTime}</span>
-									</p>
-									<i onClick={() => onDeletePlan(plan.id)} className='bx bx-minus-circle'></i>
-								</div>
-								<p className='plan-desc'>{plan.description}</p>
-							</div>
-						))}
-					</div>
-				)}
+				<PlanList mode={mode} arrPlans={arrPlans} onDeletePlan={onDeletePlan} />
 			</div>
 		</div>
 	)

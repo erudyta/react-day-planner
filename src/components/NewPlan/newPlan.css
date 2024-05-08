@@ -38,48 +38,6 @@
 	font-weight: 600;
 }
 
-.temp-plans-container {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	width: 100%;
-	max-width: 372px;
-	overflow-wrap: break-word;
-	padding: 1rem;
-	border-radius: 5px;
-}
-
-.temp-plans-container span {
-	font-weight: 600;
-}
-
-.plan-desc {
-	width: auto;
-	text-wrap: wrap;
-}
-
-.temp-plans-container i {
-	position: relative;
-	right: 0;
-}
-
-.plan-title {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	text-align: center;
-}
-
-.plan-title i {
-	cursor: pointer;
-	height: 100%;
-	transition: color 0.3s;
-}
-
-.plan-title i:hover {
-	color: red;
-}
-
 .label-flex{
 	display: flex;
 	align-items: center;

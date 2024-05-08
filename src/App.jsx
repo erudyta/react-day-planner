@@ -8,7 +8,8 @@ import NewDate from './components/NewDate/NewDate.jsx'
 let content
 function App() {
 	const [daysState, setDaysSate] = useState({
-		selectedDay: 0,
+		mode: 0,
+		selectedDayId: null,
 		days: [],
 		plans: [],
 	})
@@ -42,15 +43,18 @@ function App() {
 			setDaysSate(prev => {
 				return {
 					...prev,
+					mode: 0,
 					plans: [...tempPlans, ...prev.plans],
 				}
 			})
-			setTempPlans([])
 		}
+
+		setTempPlans([])
 
 		setDaysSate(prev => {
 			return {
 				...prev,
+				mode: 0,
 				days: [newDay, ...prev.days],
 			}
 		})
@@ -62,10 +66,18 @@ function App() {
 		})
 	}
 
+	function handleDeletePlan(id) {
+		setDaysSate(prev => ({
+			...prev,
+			plans: prev.plans.filter(plan => plan.id !== id),
+		}))
+		console.log(daysState.plans)
+	}
+
 	function handleCreateDay() {
 		setDaysSate(prev => {
 			return {
-				selectedDay: 1,
+				mode: 1,
 				days: [...prev.days],
 				plans: [...prev.plans],
 			}
@@ -75,7 +87,7 @@ function App() {
 	function handleCancelDay() {
 		setDaysSate(prev => {
 			return {
-				selectedDay: 0,
+				mode: 0,
 				days: [...prev.days],
 				plans: [...prev.plans],
 			}
@@ -83,27 +95,44 @@ function App() {
 		setTempPlans([])
 	}
 
+	function handleSelectDay(id) {
+		setDaysSate(prev => ({
+			...prev,
+			selectedDayId: id,
+			mode: 2,
+		}))
+	}
 
-	if (daysState.selectedDay === 0) {
+	const selectedDay = daysState.days.find(day => day.id === daysState.selectedDayId)
+
+	if (daysState.mode === 0) {
 		content = <StartPage onAddPlan={handleCreateDay} />
-	} else if (daysState.selectedDay === 1) {
+	} else if (daysState.mode === 1) {
 		content = (
 			<NewDate
+				mode={daysState.mode}
 				onAdd={handleAddDay}
 				onAddTempPlans={handleAddTempPlans}
+				arrDays={daysState.days}
 				arrTempPlans={tempPlans}
 				onDeletePlan={handleDeleteTempPlan}
 				onCancelDay={handleCancelDay}
 			/>
 		)
-	} else {
-		content = <SelectedDay />
+	} else if (daysState.mode === 2) {
+		content = (
+			<SelectedDay
+				mode={daysState.mode}
+				day={selectedDay}
+				arrPlans={daysState.plans.filter(plan => plan.dayId === daysState.selectedDayId)}
+				onDeletePlan={handleDeletePlan}
+			/>
+		)
 	}
-	
 
 	return (
 		<main>
-			<SidePlanner plans={daysState.days} />
+			<SidePlanner days={daysState.days} onSelectDay={handleSelectDay} />
 			{content}
 		</main>
 	)
