@@ -5,7 +5,6 @@
 	flex-direction: column;
 	gap: 1rem;
 	width: 100%;
-	max-width: 372px;
 	overflow-wrap: break-word;
 	padding: 1rem;
 	border-radius: 5px;
@@ -18,7 +17,6 @@
 	flex-direction: column;
 	gap: 1rem;
 	width: 100%;
-	max-width: 372px;
 	overflow-wrap: break-word;
 	padding: 0;
 	border-radius: 5px;

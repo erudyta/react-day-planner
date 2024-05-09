@@ -66,12 +66,11 @@ function App() {
 		})
 	}
 
-	function handleDeletePlan(id) {
+	function handleDeletePlan() {
 		setDaysSate(prev => ({
 			...prev,
 			plans: prev.plans.filter(plan => plan.id !== id),
 		}))
-		console.log(daysState.plans)
 	}
 
 	function handleCreateDay() {
@@ -101,6 +100,24 @@ function App() {
 			selectedDayId: id,
 			mode: 2,
 		}))
+		console.log(daysState.plans);
+	}
+
+	const handleDeleteDay = () => {
+		setDaysSate(prev => ({
+			...prev,
+			days: prev.days.filter(day => day.id !== prev.selectedDayId),
+			plans: prev.plans.filter(plan => plan.dayId !== prev.selectedDayId),
+			selectedDayId: null,
+			mode:0
+		}))
+	}
+
+	const handleBack = () => {
+		setDaysSate(prev =>({
+			...prev,
+			mode:0
+		}))
 	}
 
 	const selectedDay = daysState.days.find(day => day.id === daysState.selectedDayId)
@@ -126,6 +143,8 @@ function App() {
 				day={selectedDay}
 				arrPlans={daysState.plans.filter(plan => plan.dayId === daysState.selectedDayId)}
 				onDeletePlan={handleDeletePlan}
+				onDeleteDay={handleDeleteDay}
+				onBack={handleBack}
 			/>
 		)
 	}
