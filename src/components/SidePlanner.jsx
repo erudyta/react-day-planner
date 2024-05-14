@@ -1,9 +1,9 @@
 import './sideplanner.css'
 import Button from './Button/Button.jsx'
-export default function SidePlanner({ days, onSelectDay }) {
+export default function SidePlanner({ days, onSelectDay, onAddDay }) {
 	return (
 		<aside>
-			<Button>+ Add Day</Button>
+			<Button onClick={onAddDay}>+ Add Day</Button>
 			<h2>your days</h2>
 			<ul className='dateList'>
 				{days.map(day => (

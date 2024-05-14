@@ -1,4 +1,7 @@
 .selectedday-container{
+    background-color: #eee1ca;
+    padding: 0.7rem;
+    border-radius: 10px;
     width: 400px;
 }
 
@@ -6,7 +9,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #e0cdae;
     margin-bottom: 1rem;
 }
 
@@ -52,7 +55,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 0.5rem;
-    background-color: rgba(224,205,174, .1);
+    background-color: #e4dbce;
     border: 2px solid #e0cdae;
     border-radius: 10px;
     font-size: 1.1rem;
@@ -68,7 +71,7 @@
 .selectedday-newplan-opened,
 .selectedday-planlist-opened{
     margin-bottom: 1rem;
-    background-color: #eee1ca;
+    background-color: #e4dbce;
     border-radius: 10px;
     border-bottom: 0;
 

@@ -7,7 +7,7 @@ export default function PlanList({ mode, arrPlans, onDeletePlan }) {
 
 	return (
 		<>
-			{arrPlans.length === 0 && <p>No plans added!</p>}
+			{arrPlans.length === 0 && <p className={mode === 2 && 'planlist-noplans'}>No plans added!</p>}
 			{arrPlans.length > 0 && (
 				<div className={theme}>
 					<h3>Plan list</h3>

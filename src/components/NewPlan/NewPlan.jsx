@@ -1,15 +1,21 @@
 import { useRef } from 'react'
+
 import PlanList from '../PlanList/PlanList.jsx'
+import PopUp from '../PopUp/PopUp.jsx'
 
 import './newplan.css'
-export default function newPlan({ mode, onAddTempPlans, arrTempPlans, onDeletePlan }) {
+export default function newPlan({ mode, onAddTempPlans, arrTempPlans, onDeletePlan, onAddPlan }) {
 	const startTime = useRef()
 	const endTime = useRef()
 	const description = useRef()
 
-	function handleAddTempPlans() {
+	function handleAddPlan() {
 		if (startTime.current.value && endTime.current.value && description.current.value.trim()) {
-			onAddTempPlans(startTime.current.value, endTime.current.value, description.current.value)
+			if (mode === 1) {
+				onAddTempPlans(startTime.current.value, endTime.current.value, description.current.value)
+			}else if (mode === 2) {
+				onAddPlan(startTime.current.value, endTime.current.value, description.current.value)
+			}
 			startTime.current.value = ''
 			endTime.current.value = ''
 			description.current.value = ''
@@ -24,7 +30,7 @@ export default function newPlan({ mode, onAddTempPlans, arrTempPlans, onDeletePl
 	return (
 		<>
 			<div className={theme}>
-			{mode === 1 && <h3>Add plan</h3>}
+				{mode === 1 && <h3>Add plan</h3>}
 				<div className='newplan'>
 					<label htmlFor="'desc-plan">Description</label>
 					<input type='text' id='desc-plan' ref={description} />
@@ -37,9 +43,10 @@ export default function newPlan({ mode, onAddTempPlans, arrTempPlans, onDeletePl
 						End time
 					</label>
 					<input type='time' id='end-time' ref={endTime} />
-					<button onClick={handleAddTempPlans}>Add</button>
+					<button onClick={handleAddPlan}>Add</button>
 				</div>
 				{mode === 1 && <PlanList mode={mode} arrPlans={arrTempPlans} onDeletePlan={onDeletePlan} />}
+				<PopUp mode={mode} text='Inputs are not allowed to be empty' textButton='Try Again!'/>
 			</div>
 		</>
 	)

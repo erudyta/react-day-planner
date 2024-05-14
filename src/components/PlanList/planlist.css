@@ -21,7 +21,14 @@
 	overflow-wrap: break-word;
 	border: 2px solid #e0cdae;
 	border-top: none;
-	border-radius: 5px;
+	border-radius: 0 0 5px 5px;
+}
+
+.planlist-noplans{
+	padding: 0.5rem;
+	border: 2px solid #e0cdae;
+	border-radius: 0 0 5px 5px;
+	border-top: none;
 }
 
 .planlist-container span,

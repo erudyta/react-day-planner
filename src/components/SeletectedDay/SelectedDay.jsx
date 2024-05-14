@@ -4,7 +4,7 @@ import PlanList from '../PlanList/PlanList.jsx'
 import NewPlan from '../NewPlan/NewPlan.jsx'
 
 import './selectedday.css'
-export default function SelectedDay({ mode, day, arrPlans, onDeletePlan, onDeleteDay, onBack }) {
+export default function SelectedDay({ mode, day, arrPlans, onDeletePlan, onDeleteDay, onAddPlan, onBack }) {
 	const [isOpen, setIsOpen] = useState({
 		plan: false,
 		list: false
@@ -40,7 +40,7 @@ export default function SelectedDay({ mode, day, arrPlans, onDeletePlan, onDelet
 							Add new plan {isOpen.plan ? <i className='bx bxs-chevrons-up'></i> : <i className='bx bxs-chevrons-down'></i>}
 						</button>
 					</p>
-					{isOpen.plan && <NewPlan mode={mode} />}
+					{isOpen.plan && <NewPlan mode={mode} onAddPlan={onAddPlan} />}
 				</div>
 				<div className={`selectedday-planlist-container ${isOpen.list && `selectedday-planlist-opened`}`}>
 					<p className='selectedday-planlist-header'>

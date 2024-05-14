@@ -100,7 +100,7 @@ function App() {
 			selectedDayId: id,
 			mode: 2,
 		}))
-		console.log(daysState.plans);
+		console.log(daysState.plans)
 	}
 
 	const handleDeleteDay = () => {
@@ -109,21 +109,37 @@ function App() {
 			days: prev.days.filter(day => day.id !== prev.selectedDayId),
 			plans: prev.plans.filter(plan => plan.dayId !== prev.selectedDayId),
 			selectedDayId: null,
-			mode:0
+			mode: 0,
 		}))
 	}
 
 	const handleBack = () => {
-		setDaysSate(prev =>({
+		setDaysSate(prev => ({
 			...prev,
-			mode:0
+			mode: 0,
 		}))
+	}
+
+	const handleAddPlan = (startHour, endHour, text) => {
+		const planId = Math.random()
+		const newPlan = {
+			id: planId,
+			dayId: daysState.selectedDayId,
+			description: text,
+			startTime: startHour,
+			endTime: endHour,
+		}
+		setDaysSate(prev => ({
+			...prev,
+			plans: [newPlan, ...prev.plans],
+		}))
+		console.log('klik');
 	}
 
 	const selectedDay = daysState.days.find(day => day.id === daysState.selectedDayId)
 
 	if (daysState.mode === 0) {
-		content = <StartPage onAddPlan={handleCreateDay} />
+		content = <StartPage onAddDay={handleCreateDay} />
 	} else if (daysState.mode === 1) {
 		content = (
 			<NewDate
@@ -144,6 +160,7 @@ function App() {
 				arrPlans={daysState.plans.filter(plan => plan.dayId === daysState.selectedDayId)}
 				onDeletePlan={handleDeletePlan}
 				onDeleteDay={handleDeleteDay}
+				onAddPlan={handleAddPlan}
 				onBack={handleBack}
 			/>
 		)
@@ -151,7 +168,7 @@ function App() {
 
 	return (
 		<main>
-			<SidePlanner days={daysState.days} onSelectDay={handleSelectDay} />
+			<SidePlanner days={daysState.days} onSelectDay={handleSelectDay} onAddDay={handleCreateDay} />
 			{content}
 		</main>
 	)
