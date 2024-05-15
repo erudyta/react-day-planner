@@ -1,25 +1,29 @@
-import { useRef } from 'react'
+import {useState, useRef } from 'react'
 
 import PlanList from '../PlanList/PlanList.jsx'
 import PopUp from '../PopUp/PopUp.jsx'
 
 import './newplan.css'
 export default function newPlan({ mode, onAddTempPlans, arrTempPlans, onDeletePlan, onAddPlan }) {
+	const [areInputValid, setAreInputValid]= useState(true)
 	const startTime = useRef()
 	const endTime = useRef()
 	const description = useRef()
 
 	function handleAddPlan() {
 		if (startTime.current.value && endTime.current.value && description.current.value.trim()) {
+			setAreInputValid(true)
 			if (mode === 1) {
 				onAddTempPlans(startTime.current.value, endTime.current.value, description.current.value)
-			}else if (mode === 2) {
+			} else if (mode === 2) {
 				onAddPlan(startTime.current.value, endTime.current.value, description.current.value)
 			}
 			startTime.current.value = ''
 			endTime.current.value = ''
 			description.current.value = ''
+			return
 		}
+		setAreInputValid(false) 
 	}
 
 	let theme = 'newplan-container'
@@ -46,7 +50,7 @@ export default function newPlan({ mode, onAddTempPlans, arrTempPlans, onDeletePl
 					<button onClick={handleAddPlan}>Add</button>
 				</div>
 				{mode === 1 && <PlanList mode={mode} arrPlans={arrTempPlans} onDeletePlan={onDeletePlan} />}
-				<PopUp mode={mode} text='Inputs are not allowed to be empty' textButton='Try Again!'/>
+				{!areInputValid && <PopUp mode={mode} text='Inputs are not allowed to be empty.' textButton='Try Again!' state={setAreInputValid}/>}
 			</div>
 		</>
 	)

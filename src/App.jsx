@@ -139,7 +139,7 @@ function App() {
 	const selectedDay = daysState.days.find(day => day.id === daysState.selectedDayId)
 
 	if (daysState.mode === 0) {
-		content = <StartPage onAddDay={handleCreateDay} />
+		content = <StartPage onAddDay={handleCreateDay}/>
 	} else if (daysState.mode === 1) {
 		content = (
 			<NewDate

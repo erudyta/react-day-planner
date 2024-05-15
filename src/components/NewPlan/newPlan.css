@@ -80,7 +80,8 @@
 	align-items: center;
 }
 
-.newplan button{
+.newplan-container button,
+.newplan-container2 button{
 	grid-column: 1/2;
 	grid-row: 5/6;
     padding: 0.5rem 0.5rem;
@@ -93,7 +94,8 @@
     transition: color .4s, background-color .4s;
 }
 
-.newdate-container button:hover{
+.newplan-container button:hover,
+.newplan-container2 button:hover{
     color:#1e2442;
     background-color: #e0cdae;
 }
