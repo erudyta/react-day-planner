@@ -21,13 +21,13 @@
 	overflow-wrap: break-word;
 	border: 2px solid #e0cdae;
 	border-top: none;
-	border-radius: 0 0 5px 5px;
+	border-radius: 0 0 10px 10px;
 }
 
 .planlist-noplans{
 	padding: 0.5rem;
 	border: 2px solid #e0cdae;
-	border-radius: 0 0 5px 5px;
+	border-radius: 0 0 10px 10px;
 	border-top: none;
 }
 

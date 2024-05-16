@@ -26,7 +26,7 @@ export default function NewDate({ mode, onAdd, onAddTempPlans, arrDays, arrTempP
 	}
 
 	return (
-		<section className='newdate-container'>
+		<div className='newdate-container'>
 			<h2>Create a new day plan</h2>
 			<label htmlFor='date'>Choose date for new day plan</label>
 			<input type='date' id='date' name='date' ref={date} value={enteredValue} onChange={handleInputChange} />
@@ -37,6 +37,6 @@ export default function NewDate({ mode, onAdd, onAddTempPlans, arrDays, arrTempP
 				<button onClick={handleClick}>Add day plan</button>
 				<button onClick={onCancelDay}>Cancel</button>
 			</div>
-		</section>
+		</div>
 	)
 }

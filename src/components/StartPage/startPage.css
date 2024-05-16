@@ -1,17 +1,26 @@
-.startpage-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    width: 50%;
+.startpage-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
 }
 
-.startpage-container img{
-    width: 100px;
-    height: 100px;
+.startpage-container p {
+    text-align: center;
 }
 
-.startpage h2{
-    text-transform: uppercase;
+.startpage-container img {
+	width: 100px;
+	height: 100px;
+}
+
+.startpage h2 {
+	text-transform: uppercase;
+}
+
+@media (max-width: 576px) {
+	.startpage-container {
+		padding: 0 2rem;
+	}
 }

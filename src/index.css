@@ -8,7 +8,7 @@
 main{
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 5rem;
     align-items: flex-start;
     margin-top: 4rem;
 }
@@ -32,4 +32,34 @@ input{
 input:focus{
     outline: none;
     border: 2px solid#e4b76f;
+}
+
+@media (max-width: 992px){
+    main{
+        gap: 2rem;
+    }
+    .content{
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px){
+    main{
+        padding: 0 1rem 0 0;
+    }
+}
+
+@media(max-width: 576px){
+    main{
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    .content{
+        display: flex;
+        justify-content: center;
+        padding: 0 0.5rem;
+        width: 100%;
+    }
+
 }

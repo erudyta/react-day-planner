@@ -25,7 +25,7 @@ export default function SelectedDay({ mode, day, arrPlans, onDeletePlan, onDelet
 	}
 
 	return (
-		<section className='selectedday-container'>
+		<div className='selectedday-container'>
 			<header className='selectedday-header'>
 				<h1>{day.date}</h1>
 				<div className='seletdday-buttons'>
@@ -51,6 +51,6 @@ export default function SelectedDay({ mode, day, arrPlans, onDeletePlan, onDelet
 					{isOpen.list && <PlanList mode={mode} arrPlans={arrPlans} onDeletePlan={onDeletePlan} />}
 				</div>
 			</div>
-		</section>
+		</div>
 	)
 }

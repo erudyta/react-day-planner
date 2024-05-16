@@ -89,3 +89,9 @@
 }
 
 
+@media (max-width: 576px){
+    .newdate-container{
+        width: 340px;
+        margin-bottom: 3rem;
+    }
+}

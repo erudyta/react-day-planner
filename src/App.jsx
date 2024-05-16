@@ -133,13 +133,13 @@ function App() {
 			...prev,
 			plans: [newPlan, ...prev.plans],
 		}))
-		console.log('klik');
+		console.log('klik')
 	}
 
 	const selectedDay = daysState.days.find(day => day.id === daysState.selectedDayId)
 
 	if (daysState.mode === 0) {
-		content = <StartPage onAddDay={handleCreateDay}/>
+		content = <StartPage onAddDay={handleCreateDay} />
 	} else if (daysState.mode === 1) {
 		content = (
 			<NewDate
@@ -168,8 +168,8 @@ function App() {
 
 	return (
 		<main>
-			<SidePlanner days={daysState.days} onSelectDay={handleSelectDay} onAddDay={handleCreateDay} />
-			{content}
+			<SidePlanner days={daysState.days} onSelectDay={handleSelectDay} onAddDay={handleCreateDay} selectedDayId={daysState.selectedDayId} />
+			<section className='content'>{content}</section>
 		</main>
 	)
 }

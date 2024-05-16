@@ -15,13 +15,13 @@ aside h2{
     text-transform: uppercase;
 }
 
-.dateList{
+.datelist{
     width: 100%;
     color: #B6BBC4;
     list-style-type: none;
 }
 
-.dateList button{
+.datelist button{
     width: 100%;
     padding: 0.5rem;
     color: #B6BBC4;
@@ -33,8 +33,32 @@ aside h2{
     transition: background-color .3s;
 }
 
-.dateList button:hover{
+
+.datelist button:hover{
+    background-color: #303869;
+}
+
+.datelist-active button{
     background-color: #303869;
 }
 
 
+
+@media (max-width: 992px){
+    aside{
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px){
+    aside{
+        width: 45%;
+    }
+}
+
+@media(max-width: 576px){
+    aside{
+        width: 100%;
+        border-radius: 0;
+    }
+}
