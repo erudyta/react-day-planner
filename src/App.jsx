@@ -116,6 +116,7 @@ function App() {
 	const handleBack = () => {
 		setDaysSate(prev => ({
 			...prev,
+			selectedDayId: null,
 			mode: 0,
 		}))
 	}
