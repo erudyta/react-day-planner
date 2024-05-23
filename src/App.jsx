@@ -66,7 +66,7 @@ function App() {
 		})
 	}
 
-	function handleDeletePlan() {
+	function handleDeletePlan(id) {
 		setDaysSate(prev => ({
 			...prev,
 			plans: prev.plans.filter(plan => plan.id !== id),
